@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js のサンプル</title>
+  <script src="https://unpkg.com/vue@3.5.0/dist/vue.global.js"></script>
+</head>
+<body>
+  <h1>Vue3</h1>
+  <div id="app">
+    <button @click="showTime">現在の日時を表示</button>
+    <p v-if="now">現在時刻：{{ now }}</p>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          now: ''  // 初期状態では空
+        };
+      },
+      methods: {
+        showTime() {
+          this.now = new Date().toLocaleString('ja-JP');
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
