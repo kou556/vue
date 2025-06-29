@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js のサンプル</title>
+    <script src="https://unpkg.com/vue@3.5.0/dist/vue.global.js"></script>
+  
+	<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      background-color: black;
+      color: white;
+      text-align: left;
+      padding: 8px;
+    }
+
+    td {
+      border-bottom: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+
+	</head>
+  <body>
+    <h1>Vue3</h1>
+		<h3>＊データをテーブル表示する</h3>
+    <div id="app">
+      <table class="table">
+        <thead class="thead-dark">
+					<tr>
+          	<th>Name</th>
+          	<th>mail</th>
+          	<th>tel</th>
+        	</tr>
+				</thead>
+        <tr v-for="(item, index) in items" :key="index">
+          <td>{{ item.name }}</td>
+          <td>{{ item.mail }}</td>
+          <td>{{ item.tel }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      const appdata = {
+        data() {
+          return {
+            items: [
+              { name: 'Yasushi', mail: 'osonoi@cu', tel: '1111' },
+              { name: 'Koh', mail: 'kojima@cu', tel: '2222' }, 
+              { name: 'Alice', mail: 'alice@example.com', tel: '3333' }, 
+              { name: 'Bob', mail: 'bob@example.com', tel: '4444' }, 
+              { name: 'Charlie', mail: 'charlie@example.com', tel: '5555' }, 
+              { name: 'David', mail: 'david@example.com', tel: '6666' }, 
+              { name: 'Eve', mail: 'eve@example.com', tel: '7777' }, 
+              { name: 'Frank', mail: 'frank@example.com', tel: '8888' }, 
+              { name: 'Grace', mail: 'grace@example.com', tel: '9999' }, 
+              { name: 'Henry', mail: 'henry@example.com', tel: '0000' }
+            ]
+          };
+        }
+      };
+
+      createApp(appdata).mount('#app');
+    </script>
+  </body>
+</html>
